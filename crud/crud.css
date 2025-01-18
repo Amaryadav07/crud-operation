@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#bg{
+    background-image: url(./1st\ image.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+h1{
+    text-align: center;
+    color: orangered;
+    padding-top: 50px;
+    font-size: 2.5rem;
+}
+
+span{
+    color: deepskyblue;
+    font-size: 3rem;
+}
+fieldset{
+    position: absolute;
+    top: 22%;
+    left: 2%;
+    border-radius: 10px;
+    box-shadow: 4px 4px 12px whitesmoke;
+}
+legend{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(10, 50, 63);
+    letter-spacing: 2px;
+    padding: 5px;
+    background-color: rgb(251, 248, 248);
+    border-radius: 5px;
+    box-shadow: 0px 0px 14px rgb(246, 2, 39);
+    border: none;
+   
+}
+th{
+    padding: 10px;
+  
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    text-align: center;
+    letter-spacing: 1px;
+}
+td{
+    padding: 5px;
+    background-color: rgb(234, 223, 73);
+    border-radius: 5px;
+    border: none;
+    font-weight: 500;
+    text-transform: capitalize;
+    text-align: center;
+}
+#del{
+    cursor: pointer;
+    background-color: red;
+    color: white;
+}
+#del:hover{
+    box-shadow: 2px 2px 6px whitesmoke;
+}
