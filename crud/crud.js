@@ -47,8 +47,12 @@ let inpdisease=document.querySelector("#inpdisease").value;
 let inpdate=document.querySelector("#inpdate").value;
 let inpprice=document.querySelector("#inpprice").value;
 
-
+ if (inpname=="" ||inpage=="" ||inpnumber=="" || inpdisease=="" || inpdate=="" ||inpprice=="" ) {
+  alert("Please Enter valid Data to Proced")
+  return false;
+ }
 let url='http://localhost:3000/car'
+
 
 fetch(url,{
   method:"POST",
@@ -65,8 +69,10 @@ fetch(url,{
       price: inpprice
 
   })
-
+ 
 })
+location.href="index.html"
 return false;
+
 
   }

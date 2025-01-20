@@ -3,30 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="curdform.css">
+    <title>user-form</title>
 </head>
-<body>
+<body id="birds">
     <fieldset>
-        <legend>Form data</legend>
+        <legend data-aos="fade-down"  data-aos-duration="3000"  data-aos-delay="2000">Form-Data</legend>
         <br><br>
-        <form>
-            Enter name : <input type="text" id="inpname"><br><br>
-            Enter age : <input type="text" id="inpage"><br><br>
-            Enter number : <input type="text" id="inpnumber"><br><br>
-            Disease: <select  id="inpdisease"> 
+        <form data-aos="zoom-in-down"  data-aos-duration="3000"  data-aos-delay="1000">
+            Enter name : <input type="text" id="inpname" placeholder="Please Enter Your Name" data-aos="fade-up"  data-aos-duration="3000"  data-aos-delay="2000">
+            Enter age : <input type="text" id="inpage" placeholder="Please Enter Your Age" data-aos="fade-up"  data-aos-duration="3000"  data-aos-delay="2000">
+            Enter number : <input type="text" id="inpnumber" placeholder="Please Enter Your Mobile" data-aos="fade-up"  data-aos-duration="3000"  data-aos-delay="2000">
+            Disease: <select  id="inpdisease" data-aos="fade-up"  data-aos-duration="3000"  data-aos-delay="2000" > 
                 <option value="cold">cold</option>
                 <option value="cough">cough</option>
                 <option value="heart">heart</option>
                 <option value="cancer">cancer</option>
                 <option value="pain">pain</option>
             </select>
-           <br><br>
-            Enter date : <input type="date" id="inpdate"><br><br>
-            Enter price : <input type="text" id="inpprice"><br><br>
-            <input type="submit" value="book" onclick="return insertt()">
-            <br><br>
+           
+            Enter date : <input type="date" id="inpdate" data-aos="fade-up"  data-aos-duration="3000"  data-aos-delay="2000">
+            Enter price : <input type="text" id="inpprice" placeholder="Rs-750" data-aos="fade-up"  data-aos-duration="3000"  data-aos-delay="2000">
+            <input type="submit" value="book"  onclick="return insertt()" >
+            
         </form>
     </fieldset>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+      <script src="vanta.js"></script>
     <script src="crud.js"></script>
 </body>
 </html>
