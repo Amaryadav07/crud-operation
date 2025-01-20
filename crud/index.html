@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="crud.css">
 
     <title>User-Details</title>
 </head>
 <body onload="fetchData()" >
+    
    <section id="bg">
+   
     <h1>Welcome to the  - <span  id="leg"></span></h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by Name, ID, or Mobile No..." oninput="searchData()">
+       
+    </div>
+   
     <fieldset data-aos="fade-right"  data-aos-duration="3000"  data-aos-delay="500">
 
         <legend data-aos="zoom-in-down"  data-aos-duration="3000"  data-aos-delay="2000" >User-Details  </legend>

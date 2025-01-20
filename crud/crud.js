@@ -1,31 +1,55 @@
+// Fetch data and populate the table
+let fetchData = async () => {
+  let url = "http://localhost:3000/car";
+  let res = await fetch(url, { method: "GET" });
+  let data = await res.json();
+  console.log(data); 
 
+  let tabledata = document.querySelector("#display");
+  tabledata.innerHTML = ""; // Clear the table before adding new rows
 
-let fetchData=async()=>{
+  // Loop through data and add rows to the table
+  data.forEach((e) => {
+      tabledata.innerHTML += `
+          <tr data-id="${e.id}">
+              <td>${e.name}</td>
+              <td>${e.age}</td>
+              <td>${e.number}</td>
+              <td>${e.problem}</td>
+              <td>${e.date}</td>
+              <td>${e.price}</td>
+              <td onclick="deleete('${e.id}')" id="del">Delete</td>
+              <td onclick="updatee('${e.id}')" id="del1">Edit</td>
+          </tr>
+      `;
+  });
+};
 
-let url="http://localhost:3000/car"
-let res= await fetch(url,{method:"GET"})
-let data=await res.json();
-console.log(data);
+// Search functionality
+let searchData = () => {
+  let searchQuery = document.querySelector("#searchInput").value.toLowerCase();
 
-let tabledata=document.querySelector("#display")
-data.map((e)=>{
+  // Get all the rows of the table
+  let tableRows = document.querySelectorAll("#display tr");
 
-tabledata.innerHTML+=`
+  // Loop through each row and filter based on name, id, or mobile
+  tableRows.forEach(row => {
+      let name = row.cells[0].textContent.toLowerCase();
+      let id = row.getAttribute('data-id').toLowerCase();
+      let mobile = row.cells[2].textContent.toLowerCase();
 
-   <tr>
-   
-            <td>${e.name}</td>
-            <td>${e.age}</td>
-            <td>${e.number}</td>
-            <td>${e.problem}</td>
-            <td>${e.date}</td>
-            <td>${e.price}</td>
-            <td onclick="deleete('${e.id}')" id="del">Delete</td>
-            <td onclick="updatee('${e.id}')" id="del">Edit</td>
+      // Check if the row matches the search query (name, id, or mobile)
+      if (name.includes(searchQuery) || id.includes(searchQuery) || mobile.includes(searchQuery)) {
+          row.style.display = ''; // Show the row
+      } else {
+          row.style.display = 'none'; // Hide the row
+      }
+  });
+};
 
- </tr>
-`})
-}
+// Call fetchData when the page loads
+window.onload = fetchData;
+
 
 let deleete = (id) => {
   let url = `http://localhost:3000/car/${id}`;
@@ -122,9 +146,12 @@ let data=await res.json()
 let formdata=`
   
    
-      <form id="js">
-       <h5>Data <span id="updated">Updation </span> </h5>
-       <br>
+     <form id="js" data-aos="fade-down" data-aos-duration="3000" data-aos-delay="1000">
+    <h5>Update <span id="updated">Here...</span> </h5>
+    <br>
+   
+    <span class="close-btn" onclick="closeForm()">&times;</span>
+    
     <label for="upname">Enter Name:</label>
     <input type="text" id="upname" placeholder="Please Enter Your Name" value="${data.name}" required>
 
@@ -135,12 +162,12 @@ let formdata=`
     <input type="text" id="upnumber" placeholder="Please Enter Your Mobile" value="${data.number}" required>
 
     <label for="updisease">Disease:</label>
-    <select id="updisease" required>
-        <option value="cold">Cold</option>
-        <option value="cough">Cough</option>
-        <option value="heart">Heart</option>
-        <option value="cancer">Cancer</option>
-        <option value="pain">Pain</option>
+     <select id="updisease" required>
+        <option value="cold" ${data.problem === "cold" ? "selected" : ""}>Cold</option>
+        <option value="cough" ${data.problem === "cough" ? "selected" : ""}>Cough</option>
+        <option value="heart" ${data.problem === "heart" ? "selected" : ""}>Heart</option>
+        <option value="cancer" ${data.problem === "cancer" ? "selected" : ""}>Cancer</option>
+        <option value="pain" ${data.problem === "pain" ? "selected" : ""}>Pain</option>
     </select>
 
     <label for="upDate">Enter Date:</label>
@@ -154,6 +181,7 @@ let formdata=`
 
 
 
+
 `
 
 document.querySelector("#updateform").innerHTML=formdata
@@ -162,36 +190,78 @@ document.querySelector("#updateform").innerHTML=formdata
 
   }
 
- 
+ // Function to close the form
+function closeForm() {
+  const form = document.getElementById("js");
+  form.classList.add("hidden");  // Hide the form by adding a class
+}
 
 
-  let finalupdate=(id)=>{
-    let inpname=document.querySelector("#upname").value;
-    let inpage=document.querySelector("#upage").value;
-    let inpnumber=document.querySelector("#upnumber").value;
-    let inpdisease=document.querySelector("#updisease").value;
-    let inpdate=document.querySelector("#upDate").value;
-    let inpprice=document.querySelector("#upprice").value;
+  let finalupdate = (id) => {
+    // Fetching values from the form
+    let inpname = document.querySelector("#upname").value;
+    let inpage = document.querySelector("#upage").value;
+    let inpnumber = document.querySelector("#upnumber").value;
+    let inpdisease = document.querySelector("#updisease").value;
+    let inpdate = document.querySelector("#upDate").value;
+    let inpprice = document.querySelector("#upprice").value;
 
-    let url = `http://localhost:3000/car/${id}`; 
+    // Show confirmation popup before updating data
+    Swal.fire({
+        title: "Do you want to save the changes?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Save",
+        denyButtonText: `Don't save`
+    }).then((result) => {
+        // If the user confirms, send the PUT request to update the data
+        if (result.isConfirmed) {
+            // URL for the PUT request
+            let url = `http://localhost:3000/car/${id}`;
 
-    fetch(url,{
-      method:"PUT",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-    
-          name:inpname ,
-          age:inpage ,
-          number:inpnumber ,
-          problem:inpdisease ,
-          date:inpdate ,
-          price: inpprice
-    
-      })
-     
-    })
-    return false;
+            // Sending PUT request to update data
+            fetch(url, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: inpname,
+                    age: inpage,
+                    number: inpnumber,
+                    problem: inpdisease,
+                    date: inpdate,
+                    price: inpprice
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success message if data is updated
+                    Swal.fire("Saved!", "Your changes have been saved.", "success");
+                    location.reload(); // Reload the page to reflect changes
+                } else {
+                    // Error handling if update failed
+                    Swal.fire({
+                        title: "Error!",
+                        text: "There was an issue saving the data.",
+                        icon: "error"
+                    });
+                }
+            })
+            .catch((error) => {
+                // Handle fetch errors (like network issues)
+                Swal.fire({
+                    title: "Network Error!",
+                    text: "Failed to update the data. Please try again.",
+                    icon: "error"
+                });
+            });
+        } else if (result.isDenied) {
+            // If the user chooses not to save changes
+            Swal.fire("Changes are not saved", "", "info");
+        }
+    });
 
-  }
+    return false; // Prevent default form submission
+};
+

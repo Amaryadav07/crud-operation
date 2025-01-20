@@ -20,7 +20,7 @@
 h1{
     text-align: center;
     color: orangered;
-    padding-top: 50px;
+    padding-top: 20px;
     font-size: 2.5rem;
 }
 
@@ -30,7 +30,7 @@ span{
 }
 fieldset{
     position: absolute;
-    top: 22%;
+    top: 25%;
     left: 2%;
     border-radius: 10px;
     box-shadow: 4px 4px 12px whitesmoke;
@@ -75,24 +75,101 @@ td{
 #del:hover{
     box-shadow: 2px 2px 6px whitesmoke;
 }
+#del1{
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+   
+}
+#del1:hover{
+    box-shadow: 2px 2px 6px whitesmoke;
+}
+/* Style for the search container */
+.search-container {
+    position: relative;
+    width: 100%;          
+    max-width: 350px;   
+    bottom: 5%;
+    left: 2%;
+    display: flex;
+    align-items: center; 
+}
 
 
+.search-container input {
+    width: 100%;
+    padding: 12px 40px 12px 20px; 
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; 
+    transition: border-color 0.3s ease;
+}
+
+
+.search-container input:focus {
+    border-color: #4CAF50;
+    outline: none; 
+}
+
+
+
+
+@media (max-width: 600px) {
+    .search-container {
+        max-width: 100%;
+        margin: 10px;
+    }
+
+    .search-container input {
+        padding: 10px 35px 10px 15px; 
+    }
+
+    
+}
+
+
+
+/* Style the form container */
 #js {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
+   
     padding: 12px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-right: 60px;
+    margin-right: 70px;
+}
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 2px 10px;
+    background-color: red;
+    border-radius: 5px;
+   
+}
+.close-btn:hover {
+    transform: scale(1.1);
+    transition: 1s ease;
+    box-shadow: 4px 4px 4px  black;
 }
 
+.hidden {
+    display: none;
+}
 
 #js label {
     display: block;
     font-size: 16px; 
-    font-weight: 500;
+    font-weight: bold;
     margin-bottom: 6px;
     color: #333;
 }
@@ -113,7 +190,7 @@ h5{
 #js select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px; 
+    margin-bottom: 5px; 
     border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 14px; 
@@ -137,12 +214,13 @@ h5{
     border-radius: 6px;
     font-size: 15px; 
     cursor: pointer;
-    transition: background-color 0.3s ease;
+   
 }
 
 
 #js input[type="submit"]:hover {
     background-color: orangered;
+    box-shadow: 2px 2px 12px black;
 }
 
 
@@ -150,7 +228,7 @@ h5{
 #js input[type="date"],
 #js select,
 #js input[type="submit"] {
-    margin-top: 8px;
+    margin-top: 5px;
 }
 
 
