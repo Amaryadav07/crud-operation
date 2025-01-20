@@ -25,16 +25,45 @@ tabledata.innerHTML+=`
 `})
 }
 
-let deleete=(id)=>{
-    let url=`http://localhost:3000/car/${id}`
-   let ans=confirm("Are you sure to Delete the data")
-   if (ans==true) {
-    fetch(url,{method:"DELETE"})
-   }
-   else{
-    alert("Data not Deleted")
-   }
-}
+let deleete = (id) => {
+  let url = `http://localhost:3000/car/${id}`;
+  
+ 
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      
+      fetch(url, {
+        method: "DELETE",
+      }).then(response => {
+        if (response.ok) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          }).then(() => {
+           
+            location.reload(); 
+          });
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: "There was an issue deleting the data.",
+            icon: "error"
+          });
+        }
+      });
+    }
+  });
+};
+
 
 
 
@@ -71,6 +100,7 @@ fetch(url,{
   })
  
 })
+
 location.href="index.html"
 return false;
 
