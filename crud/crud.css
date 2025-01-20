@@ -10,6 +10,13 @@
     background-size: cover;
     height: 100vh;
 }
+.ab{
+    height: 100vh;
+    
+    display: block;
+    flex-direction: column;
+    }
+
 h1{
     text-align: center;
     color: orangered;
@@ -67,4 +74,89 @@ td{
 }
 #del:hover{
     box-shadow: 2px 2px 6px whitesmoke;
+}
+
+
+#js {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 60px;
+}
+
+
+#js label {
+    display: block;
+    font-size: 16px; 
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+h5{
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #4CAF50;
+}
+#updated{
+    color: orangered;
+    font-size: 18px;
+}
+
+#js input[type="text"],
+#js input[type="date"],
+#js select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; 
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px; 
+    color: #333;
+}
+
+
+#js select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+#js input[type="submit"] {
+    width: 100%;
+    padding: 12px; 
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+#js input[type="submit"]:hover {
+    background-color: orangered;
+}
+
+
+#js input[type="text"],
+#js input[type="date"],
+#js select,
+#js input[type="submit"] {
+    margin-top: 8px;
+}
+
+
+@media screen and (max-width: 768px) {
+    #js {
+        width: 90%;
+        padding: 15px;
+    }
 }
