@@ -176,7 +176,7 @@ let formdata=`
     <input type="date" id="upDate" value="${data.date}" required>
 
     <label for="upprice">Enter Price:</label>
-    <input type="text" id="upprice" value="${data.price}" placeholder="Rs-750" required>
+    <input type="text" id="upprice" value="${data.price}" readonly>
 
     <input type="submit" value="Update" onclick="return finalupdate('${data.id}')">
 </form>
@@ -238,11 +238,11 @@ function closeForm() {
             })
             .then(response => {
                 if (response.ok) {
-                    // Success message if data is updated
+                   
                     Swal.fire("Saved!", "Your changes have been saved.", "success");
-                    location.reload(); // Reload the page to reflect changes
+                    location.reload(); 
                 } else {
-                    // Error handling if update failed
+                   
                     Swal.fire({
                         title: "Error!",
                         text: "There was an issue saving the data.",
@@ -264,6 +264,6 @@ function closeForm() {
         }
     });
 
-    return false; // Prevent default form submission
+    return false; 
 };
 
