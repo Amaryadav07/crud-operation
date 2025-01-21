@@ -146,8 +146,8 @@ let data=await res.json()
 let formdata=`
   
    
-     <form id="js" data-aos="fade-down" data-aos-duration="3000" data-aos-delay="1000">
-    <h5>Update <span id="updated">Here...</span> </h5>
+     <form id="js" data-aos="fade-down" data-aos-duration="3000" data-aos-delay="500">
+    <h5>Update <span id="updated">Form...</span> </h5>
     <br>
    
     <span class="close-btn" onclick="closeForm()">&times;</span>
@@ -257,7 +257,7 @@ function closeForm() {
                 });
             });
         } else if (result.isDenied) {
-            // If the user chooses not to save changes
+           
             Swal.fire("Changes are not saved", "", "info");
         }
     });

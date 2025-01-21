@@ -2,7 +2,7 @@
   "car": [
     {
       "name": "anuj",
-      "age": "20",
+      "age": "22",
       "number": "8319960075",
       "problem": "pain",
       "date": "2025-01-21",
@@ -13,7 +13,7 @@
       "name": "sanju",
       "age": "30",
       "number": "8319960075",
-      "problem": "cold",
+      "problem": "cough",
       "date": "2025-01-23",
       "price": "500",
       "id": "e76f"
