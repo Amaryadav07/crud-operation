@@ -88,8 +88,7 @@ td{
 .search-container {
     position: relative;
     width: 100%;          
-    max-width: 350px;   
-    bottom: 5%;
+    max-width: 300px;   
     left: 2%;
     display: flex;
     align-items: center; 
@@ -98,12 +97,12 @@ td{
 
 .search-container input {
     width: 100%;
-    padding: 12px 40px 12px 20px; 
+    padding: 8px;
     font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box; 
-    transition: border-color 0.3s ease;
+    border: none;
+    border-radius: 5px;
+    
+    
 }
 
 
