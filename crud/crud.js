@@ -6,9 +6,10 @@ let fetchData = async () => {
   console.log(data); 
 
   let tabledata = document.querySelector("#display");
-  tabledata.innerHTML = ""; // Clear the table before adding new rows
+  
+  tabledata.innerHTML = ""; 
 
-  // Loop through data and add rows to the table
+
   data.forEach((e) => {
       tabledata.innerHTML += `
           <tr data-id="${e.id}">
@@ -36,6 +37,7 @@ let searchData = () => {
   tableRows.forEach(row => {
       let name = row.cells[0].textContent.toLowerCase();
       let id = row.getAttribute('data-id').toLowerCase();
+      
       let mobile = row.cells[2].textContent.toLowerCase();
 
       // Check if the row matches the search query (name, id, or mobile)
@@ -190,10 +192,10 @@ document.querySelector("#updateform").innerHTML=formdata
 
   }
 
- // Function to close the form
+ //  to close the form
 function closeForm() {
   const form = document.getElementById("js");
-  form.classList.add("hidden");  // Hide the form by adding a class
+  form.classList.add("hidden");  
 }
 
 
